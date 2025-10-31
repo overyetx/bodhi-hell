@@ -392,7 +392,7 @@ export default function App() {
             <h3 className="text-sm font-semibold uppercase text-slate-500 tracking-wider border-b border-slate-700 pb-2">
               Categories ({activeProfile?.name})
             </h3>
-            <span class="text-sm text-center font-normal text-slate-400 mt-3">Total {totalTrunkCount} trunks in this profile</span>
+            <span class="text-sm text-center font-normal text-slate-400 mt-3">Total {totalTrunkCount} trunks</span>
 
             {/* Add Category Section */}
             {!isAddingCategory ? (
