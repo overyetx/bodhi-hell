@@ -14,9 +14,12 @@ import NavButton from './components/shared/NavButton';
 import CategoryTab from './components/shared/CategoryTab';
 import { useProfiles } from './hooks/useProfiles';
 import { useTrunks } from './hooks/useTrunks';
+import useSingleInstance from './hooks/useSingleInstance';
 
 
 export default function App() {
+  useSingleInstance();
+
   const [activeCategoryId, setActiveCategoryId] = useState([]);
 
   const {
