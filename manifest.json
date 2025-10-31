@@ -1,0 +1,28 @@
+{
+  "name": "BodhiHELL",
+  "short_name": "BodhiHELL",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0f172a",
+  "background_color": "#0f172a",
+  "id": "/",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "description": "BodhiHell is a React-based desktop-style web application for collecting and organizing screenshot-based “bodhi trunks” / inventory entries.",
+  "categories": [
+    "productivity",
+    "utilities"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bodhi-hell/static/css/main.f15e7ac6.css",
+    "main.js": "/bodhi-hell/static/js/main.38059913.js",
+    "static/js/453.ea5187d3.chunk.js": "/bodhi-hell/static/js/453.ea5187d3.chunk.js",
+    "index.html": "/bodhi-hell/index.html",
+    "main.f15e7ac6.css.map": "/bodhi-hell/static/css/main.f15e7ac6.css.map",
+    "main.38059913.js.map": "/bodhi-hell/static/js/main.38059913.js.map",
+    "453.ea5187d3.chunk.js.map": "/bodhi-hell/static/js/453.ea5187d3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f15e7ac6.css",
+    "static/js/main.38059913.js"
+  ]
+}
