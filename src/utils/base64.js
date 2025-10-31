@@ -6,4 +6,17 @@ function blobToBase64(blob) {
   });
 }
 
-export {blobToBase64};
+function base64ToBlob(base64) {
+  const [meta, data] = base64.split(",");
+  const mime = meta.match(/:(.*?);/)[1];
+  const binary = atob(data);
+
+  const len = binary.length;
+  const buffer = new Uint8Array(len);
+  for (let i = 0; i < len; i++) {
+    buffer[i] = binary.charCodeAt(i);
+  }
+  return new Blob([buffer], { type: mime });
+}
+
+export {blobToBase64, base64ToBlob};

@@ -72,7 +72,9 @@ export async function importDatabaseFromJson(jsonData) {
   // ✅ Images (key/value)
   const tx3 = db.transaction("images", "readwrite");
   for (const key of Object.keys(images)) {
-    await tx3.store.put(images[key], key);
+    const base64 = images[key];
+    const blob = base64ToBlob(base64);
+    await tx3.store.put(blob, key);
   }
   await tx3.done;
 
