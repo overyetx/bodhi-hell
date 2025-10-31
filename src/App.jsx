@@ -32,6 +32,7 @@ export default function App() {
 
   const {
     trunks,
+    totalTrunkCount,
     loading,
     addTrunk,
     updateTrunk,
@@ -388,15 +389,16 @@ export default function App() {
         {/* Left Panel: Category Tabs */}
         {activeView === 'trunks' && (
           <aside className="w-64 h-vh flex-shrink-0 p-4 bg-slate-800 border-r border-slate-700 overflow-y-auto hidden md:flex flex-col"> 
-            <h3 className="text-sm font-semibold uppercase text-slate-500 mb-4 tracking-wider border-b border-slate-700 pb-2">
+            <h3 className="text-sm font-semibold uppercase text-slate-500 tracking-wider border-b border-slate-700 pb-2">
               Categories ({activeProfile?.name})
             </h3>
+            <span class="text-sm text-center font-normal text-slate-400 mt-3">Total {totalTrunkCount} trunks in this profile</span>
 
             {/* Add Category Section */}
             {!isAddingCategory ? (
               <button
                 onClick={() => setIsAddingCategory(true)}
-                className="w-full mb-4 flex items-center justify-center p-2 text-sm text-sky-400 border border-sky-600 rounded-lg hover:bg-sky-600 hover:text-white transition-colors duration-200"
+                className="w-full mt-4 mb-4 flex items-center justify-center p-2 text-sm text-sky-400 border border-sky-600 rounded-lg hover:bg-sky-600 hover:text-white transition-colors duration-200"
               >
                 <Plus className="w-4 h-4 mr-2" />
                 Add New Category

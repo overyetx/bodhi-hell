@@ -14,6 +14,7 @@ export function useTrunks(activeProfileId, activeCategoryId) {
 
     const [allTrunks, setAllTrunks] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [totalTrunkCount, setTotalTrunkCount] = useState(0);
 
 
     // ---- LOAD FROM DB ----
@@ -24,6 +25,7 @@ export function useTrunks(activeProfileId, activeCategoryId) {
         setLoading(true);
 
         const items = await fetchTrunksFromDb(); // <-- all trunks
+        setTotalTrunkCount(items.length)
         for(let i = 0; i < items.length; i++) {
             const blobUrl = await loadTrunkImage(items[i].id);
             if (blobUrl) {
@@ -119,6 +121,7 @@ export function useTrunks(activeProfileId, activeCategoryId) {
 
     return {
         trunks,
+        totalTrunkCount,
         loading,
 
         addTrunk,
