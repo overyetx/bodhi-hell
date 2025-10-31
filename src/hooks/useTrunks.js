@@ -76,7 +76,15 @@ export function useTrunks(activeProfileId, activeCategoryId) {
 
     // ---- UPDATE ----
     const updateTrunk = useCallback(async (updated) => {
-        await saveTrunk(updated);
+        const trunk = {
+            id: updated.id,
+            profileId: updated.profileId,
+            categoryId: updated.categoryId,
+            model: updated.model,
+            plate: updated.plate,
+        };
+
+        await saveTrunk(trunk);
         await loadTrunks();
     }, [loadTrunks]);
 
