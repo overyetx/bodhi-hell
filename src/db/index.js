@@ -1,5 +1,5 @@
 import { openDB } from "idb";
-import { blobToBase64 } from "../utils/base64";
+import { base64ToBlob, blobToBase64 } from "../utils/base64";
 
 export const dbPromise = openDB("bodhi-hell", 1, {
   upgrade(db) {
