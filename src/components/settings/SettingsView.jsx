@@ -12,6 +12,7 @@ export const SettingsView = ({
     const [tempSettings, setTempSettings] = useState(cropSettings);
     const canvasRef = useRef(null);
     const videoRef = useRef(null);
+    const [exportLoading, setExportLoading] = useState(false);
 
     const onChange = (e) => {
         const name = e.target.name;
@@ -99,6 +100,7 @@ export const SettingsView = ({
     const save = () => setCropSettings(tempSettings);
 
     async function downloadDbExport() {
+        setExportLoading(true);
         const data = await exportDatabaseToJson();
         const json = JSON.stringify(data, null, 2);
 
@@ -120,6 +122,8 @@ export const SettingsView = ({
         document.body.removeChild(a);
 
         URL.revokeObjectURL(url);
+
+        setExportLoading(false);
     }
 
     async function handleImportBackup(event) {
@@ -265,10 +269,20 @@ export const SettingsView = ({
                 <div className="pt-2 border-slate-700 flex space-x-3">
                     <button
                         onClick={downloadDbExport}
+                        disabled={exportLoading}
                         className="px-2 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200 text-sm font-semibold flex items-center justify-center"
                     >
-                        <BookmarkPlus className="w-4 h-4 mr-2" />
-                        Backup
+                        {exportLoading ? (
+                            <span className="flex items-center gap-2">
+                            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                            Exporting...
+                            </span>
+                        ) : (
+                            <>
+                            <BookmarkPlus className="w-4 h-4 mr-2" />
+                            Backup
+                            </>
+                        )}
                     </button>
                     <button
                         onClick={() => inputRef.current?.click()}

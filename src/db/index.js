@@ -27,11 +27,14 @@ export async function exportDatabaseToJson() {
     const store = tx.objectStore(storeName);
     
     if (storeName === "images") {
-      const all = await store.getAllKeys();
+      const all = await store.getAll();
+      const keys = await store.getAllKeys();
+
       exportObj[storeName] = {};
 
-      for (const key of all) {
-        const blob = await store.get(key);
+      for (let i = 0; i < keys.length; i++) {
+        const key = keys[i];
+        const blob = all[i];
         const base64 = await blobToBase64(blob);
         exportObj[storeName][key] = base64;
       }
